@@ -1,0 +1,27 @@
+FINAL PERFORMANCE RESULTS
+=========================
+
+RF ONLY
+-------------------------
+TP: 2170
+TN: 2384
+FP: 116
+FN: 330
+Accuracy: 91.08%
+Precision: 94.93%
+Recall: 86.80%
+FPR: 4.64%
+F1: 90.68%
+
+RF + SUPPORTING AUDIO
+-------------------------
+TP: 2203
+TN: 2363
+FP: 137
+FN: 297
+Accuracy: 91.32%
+Precision: 94.15%
+Recall: 88.12%
+FPR: 5.48%
+F1: 91.03%
+

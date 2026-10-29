@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "author": "Smart Disaster Rescue Beacon",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-mpu6050", "id": "imu", "top": -140, "left": 160, "attrs": {} },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir", "top": -140, "left": -170, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "potRF", "top": 230, "left": -230, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "potSND", "top": 230, "left": -120, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "potIR", "top": 230, "left": -10, "attrs": {} },
+    { "type": "wokwi-slide-switch", "id": "mode", "top": 240, "left": 140, "attrs": {} },
+    { "type": "wokwi-resistor", "id": "r1", "top": 90, "left": 230, "attrs": { "value": "220" } },
+    { "type": "wokwi-led", "id": "led", "top": 0, "left": 300, "attrs": { "color": "red" } },
+    { "type": "wokwi-buzzer", "id": "bz", "top": 0, "left": 380, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+
+    [ "imu:VCC", "esp:3V3", "red", [] ],
+    [ "imu:GND", "esp:GND.1", "black", [] ],
+    [ "imu:SDA", "esp:D21", "green", [] ],
+    [ "imu:SCL", "esp:D22", "blue", [] ],
+
+    [ "pir:VCC", "esp:3V3", "red", [] ],
+    [ "pir:GND", "esp:GND.1", "black", [] ],
+    [ "pir:OUT", "esp:D27", "orange", [] ],
+
+    [ "potRF:VCC", "esp:3V3", "red", [] ],
+    [ "potRF:GND", "esp:GND.1", "black", [] ],
+    [ "potRF:SIG", "esp:D34", "purple", [] ],
+
+    [ "potSND:VCC", "esp:3V3", "red", [] ],
+    [ "potSND:GND", "esp:GND.1", "black", [] ],
+    [ "potSND:SIG", "esp:D35", "purple", [] ],
+
+    [ "potIR:VCC", "esp:3V3", "red", [] ],
+    [ "potIR:GND", "esp:GND.1", "black", [] ],
+    [ "potIR:SIG", "esp:D32", "purple", [] ],
+
+    [ "mode:1", "esp:GND.1", "black", [] ],
+    [ "mode:2", "esp:D25", "yellow", [] ],
+    [ "mode:3", "esp:3V3", "red", [] ],
+
+    [ "esp:D2", "r1:1", "green", [] ],
+    [ "r1:2", "led:A", "green", [] ],
+    [ "led:C", "esp:GND.2", "black", [] ],
+
+    [ "bz:2", "esp:D26", "orange", [] ],
+    [ "bz:1", "esp:GND.2", "black", [] ]
+  ],
+  "dependencies": {}
+}
